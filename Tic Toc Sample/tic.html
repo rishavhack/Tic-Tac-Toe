@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="ticToc">
+<head>
+<title>Tic Toc</title>
+<script src="angular.js"></script>
+<script src="toc.js"></script>
+<link rel="stylesheet" href="myStyle.css">
+</head>
+
+<body ng-controller="firstCtrl as my">
+
+<h1>Welcome to tic tac Game</h1>
+<table border="2" style="margin: 150px;">
+	<tr ng-click = "my.rowGame($index)" ng-repeat="x in my.tic track by $index">
+		<td class="square" ng-click = "my.gameStart($index)" ng-repeat="x in my.tic track by $index">{{x.name}}</td>
+	</tr>
+</table>
+
+</body>
+</html>
