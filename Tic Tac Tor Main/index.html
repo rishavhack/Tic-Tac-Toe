@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Tic Tac</title>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body ng-controller= "firstCtrl as my">
+<div class="container">
+	<div class="jumbotron">
+	<h1>Tic Tac Toe!</h1>
+	</div>	
+	<div> 
+<h2>Current Player Turn :<span class="label label-default">{{ my.currentPlayer }}</span></h2>
+	</div>
+	<div style="margin-left: 260px;pointer-events: {{ my.winnerPlayer.disable }};">
+		<div>
+			<button class="btn-danger btn-lg" ng-repeat="box in my.box[0] track by $index" ng-disabled="my.isTaken(box)" ng-click="my.clickBox(box);">{{box.value}}</button>
+		</div>
+		<div>
+			<button class="btn-danger btn-lg" ng-repeat="box in my.box[1]" ng-disabled="my.isTaken(box)" ng-click="my.clickBox(box);">{{box.value}}</button>
+		</div>
+		
+		<div>
+			<button class="btn-danger btn-lg" ng-repeat="box in my.box[2]" ng-disabled="my.isTaken(box)" ng-click="my.clickBox(box);">{{box.value}}</button>
+		</div>
+
+	</div>
+	<h2>Winner is :<span class="label label-default">{{ my.winnerPlayer.winner }}</span></h2>
+</div>
+</body>
+</html>
